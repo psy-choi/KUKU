@@ -162,3 +162,11 @@
 #red_button_2{
     border: 3px solid #DC143C;
 }
+
+
+a{
+    text-decoration: none;
+    color: #604023;
+    font-size: 0.5em;
+    font-weight: 700;
+}

@@ -18,7 +18,7 @@ def ranking(request):
 
 def pictures(request, category, search):
     if category in ['ipselenti', 'day', 'night']:
-        pictures = Picture.filter(category=category)
+        pictures = Picture.objects.filter(category=category)
     else:
         pictures = Picture.objects.all() # 바꿈
     
