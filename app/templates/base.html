@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    {% block css %}
+
+    {% endblock %}
+</head>
+<body>
+    <div class="nav_bar">
+        <a href="{% url 'home' %}" class="home_link">
+            <img src="{% static 'pictures/nav_logo.png' %}" id="nav_logo"></img>
+        </a>
+        <div class="text_nav">
+            <div class="each_nav">
+                <svg class= "icon" id="icon_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><path fill="currentColor" fill-rule="evenodd" d="M12 7a1 1 0 0 1 1-1h22a1 1 0 0 1 1 1v1h5a1 1 0 0 1 1 1v6a5 5 0 0 1-5 5h-1.683A12.017 12.017 0 0 1 26 27.834V34h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H16a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h6v-6.166A12.017 12.017 0 0 1 12.683 20H11a5 5 0 0 1-5-5V9a1 1 0 0 1 1-1h5V7Zm24 9v-6h4v5a3 3 0 0 1-3 3h-1v-2Zm-24-6H8v5a3 3 0 0 0 3 3h1v-8Z" clip-rule="evenodd"/></svg>
+                <a class="each_nav_text" href="{% url 'ranking' %}">어워드</a>
+            </div>
+            <span class="gray">|</span>
+            <div class="each_nav">
+                <svg class= "icon" id="icon_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M5 16.25a.75.75 0 0 1 .75.75v2c0 .138.112.25.25.25h12a.25.25 0 0 0 .25-.25v-2a.75.75 0 0 1 1.5 0v2A1.75 1.75 0 0 1 18 20.75H6A1.75 1.75 0 0 1 4.25 19v-2a.75.75 0 0 1 .75-.75Zm5.738-.123a.992.992 0 0 1-.989-.905a36.618 36.618 0 0 1-.08-5.27a42.17 42.17 0 0 1-.741-.048l-1.49-.109a.76.76 0 0 1-.585-1.167a15.555 15.555 0 0 1 4.032-4.258l.597-.429a.888.888 0 0 1 1.036 0l.597.43a15.556 15.556 0 0 1 4.032 4.257a.76.76 0 0 1-.585 1.167l-1.49.109c-.246.018-.493.034-.74.047c.1 1.757.072 3.518-.082 5.27a.992.992 0 0 1-.988.906h-2.524Z" clip-rule="evenodd"/></svg>
+                <a class="each_nav_text" href= "{% url 'post' %}">업로드</a>
+            </div>
+            <span class="gray">|</span>
+            <div class="each_nav">
+                <svg class= "icon" id="icon_3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="none" fill-rule="evenodd"><path d="M24 0v24H0V0h24ZM12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035c-.01-.004-.019-.001-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427c-.002-.01-.009-.017-.017-.018Zm.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093c.012.004.023 0 .029-.008l.004-.014l-.034-.614c-.003-.012-.01-.02-.02-.022Zm-.715.002a.023.023 0 0 0-.027.006l-.006.014l-.034.614c0 .012.007.02.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01l-.184-.092Z"/><path fill="currentColor" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2Zm4.5 8.5a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3Zm-4.5 0a1.5 1.5 0 1 0 0 3a1.5 1.5 0 0 0 0-3Zm-4.5 0a1.5 1.5 0 1 0 0 3a1.5 1.5  0 0 0-3Z"/></g></svg>
+                <a class="each_nav_text" href= "{% url 'pictures' 'all' None %}">더보기</a>
+            </div>
+        </div>
+    </div>
+    {% block body %}
+    
+
+
+    {% endblock %}
+</body>
+</html>
