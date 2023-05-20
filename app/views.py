@@ -26,8 +26,6 @@ def pictures(request, category, search):
         pictures = pictures.filter(title__contains=search)
     return render(request, 'pictures.html', {'pictures': pictures})
 
-
-
 def like(request, picture_id):
     if request.method == "POST":
         like_up = Picture.objects.filter(pk=picture_id).update(
