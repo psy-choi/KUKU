@@ -16,7 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("home/", views.home, name="home"),
+    path("ranking/", views.ranking, name="ranking"),
+    path("pictures/", views.pictures, name="pictures"),
+    path("post/", views.post, name="post"),
+    path("like/<int:picture_id>", views.like, name="like"),
+    path("post_upload/<str:category>/<str:title>/<str:address>/<str:phone>/", views.post_upload, name="post_upload"),
 ]
