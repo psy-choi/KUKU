@@ -1,0 +1,109 @@
+{% extends 'base.html' %} {% block css %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'pictures.css' %}" />
+{% endblock %} 
+
+{% block body %}
+
+<form id="myForm" method="GET">
+{% csrf_token %}
+<div class="searchWrapper">
+
+  <input type="text" name="searchInput" id="searchInput" placeholder="제목으로 검색하기" />
+  <button type="submit" class="search_icon">
+      <svg xmlns="http://www.w3.org/2000/svg" class="search_icon" viewBox="0 0 24 24"><path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5A6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5S14 7.01 14 9.5S11.99 14 9.5 14z"/></svg>
+    </button>
+</div>
+</form>
+
+<script>
+  document.getElementById("myForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // 기본 제출 동작을 막습니다.
+    
+    var form = event.target;
+    var myValue = form.elements.searchInput.value;
+    if (myValue === "") {
+      myValue = None;
+    } 
+    
+    window.location.href = "/pictures/all/" + myValue; // 현재 창을 새로운 URL로 이동합니다.
+  });
+</script>
+
+
+<div class="custom-select">
+  <select name="category" id="categorySelect" onchange="handleCategoryChange(this)">
+    <option value="" selected>카테고리 선택하기</option>
+    <option value="day">대동제의 낮</option>
+    <option value="night">대동제의 밤</option>
+    <option value="ipselenti">입실렌티</option>
+  </select>
+</div>
+
+
+
+<div class="description">좋아하는 사진에 '더블클릭'해서 좋아요를 눌러주세요!</div>
+<div class="container">
+  {% for picture in pictures %}
+  <div id="likeButton" class="{{picture.category}} item" ondblclick="givelove('{{ picture.pk }}')">
+    <div class="each_picture">
+      <img class="photoSelect" src="data:image/jpeg;base64,{{ picture.address }}" alt="Image">
+    </div>
+
+    <div class="bottom">
+      <div>
+        <svg xmlns="http://www.w3.org/2000/svg"  class="each_like_icon" id="each_liked_icon" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+        </svg>
+      </div>
+      <div id="{{ picture.pk }}" class="each_like">
+        {{picture.like}}
+      </div>
+      <div id="{{ picture.pk }}" class="each_like">
+        {{picture.fm}}
+      </div>
+    </div>
+    <div class="each_title">
+      {{picture.title}}
+    </div>
+
+  </div>
+  {% endfor %}
+  <script>
+    function givelove(postPk){
+      var likeButton = document.getElementById('likeButton');
+
+
+      if (likeButton.disabled) {
+      return;
+      }
+
+      likeButton.disabled = true;
+
+      var url = '/like/' + postPk;
+      fetch(url, {
+        method: "POST"
+      })
+      .then(function(response) {
+        return response.json(); // JSON 형식의 응답을 파싱
+      })
+      .then(function(data) {
+        var likeCount = data.like_count; // like_count 값 추출
+        document.getElementById(postPk).innerHTML = likeCount; // HTML 엘리먼트에 설정
+      });
+
+      var likeIcon = document.getElementById('each_liked_icon');
+      if (likeIcon.classList.contains('liked')) {
+      } else {
+        likeIcon.classList.add('liked');
+      }
+
+      setTimeout(function() {
+      likeButton.disabled = false;
+      }, 1500); 
+    }
+  </script>
+</div>
+
+<script src="{% static 'js/pictures.js' %}"></script>
+
+{% endblock %}

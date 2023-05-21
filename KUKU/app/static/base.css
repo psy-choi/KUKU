@@ -1,0 +1,82 @@
+body {
+  background-color: #faf6e6;
+  max-width: 430px;
+  margin: 0 auto;
+  font-family: "Noto Sans KR";
+}
+
+.nav_bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border-bottom: 0.02em solid #604023;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  height: 100%;
+}
+
+.text_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 0.7em;
+}
+
+.each_nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.3em;
+}
+
+.each_nav_text {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 0.5em;
+  font-weight: 700;
+  text-decoration: none;
+  color: #604023;
+}
+
+.gray {
+  color: #604023;
+  margin: 0 1em;
+}
+
+.icon {
+  color: #604023;
+  width: 1.2em;
+  height: 1.2em;
+  padding-right: 0.2em;
+  position: relative;
+  top: 0.05em;
+}
+
+#nav_logo {
+  margin-top: 0.7em;
+  margin-left: 1em;
+  width: 11em;
+  height: 4em;
+}
+
+
+
+.footer{
+  border-top: 1px solid #604023;
+}
+
+.contact{
+  color: #604023;
+  font-size: 0.5em;
+  position: relative;
+  left: 65%;
+}
+
+.contact1{
+  margin-top: 1%;
+}
+
+.contact4{
+  margin-bottom: 1%;
+}
