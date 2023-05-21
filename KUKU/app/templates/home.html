@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'home.css' %}"/>
+{% endblock %}
+
+
+{% block body %}
+<div class="homeContainer">
+
+
+    
+    <img src="{% static 'pictures/main_logo.png' %}" id="main_logo"/>
+    
+    <div class= "text">
+        <p class="home-text">2023 석탑대동제 그리고, 입실렌티<br>고려대 학생들의 <b>사진 콘테스트</b>
+        <br>2023.05.22~2023.05.28</br><b>단, 7일</b><br></br>🌝 대동제의 낮 <span class="small-text">ex. 부스/교복/단체사진</span>
+        🌚 대동제의 밤 <span class="small-text">ex. FM/만취/주점/연예인과 한 컷</span>
+        ❤️ 입실렌티 <span class="small-text">ex. 레플리카/뱃노래/응원/타투스티커</span>
+        <br>마음에 드는 사진에 좋아요를 남겨주세요!</br>
+        <span class="small-text">(주의) 모든 사진은 5월 29일에 삭제됩니다!
+        그러니 부담없이 올려보아요😉</span>
+        </p>
+    </div>
+
+    <a href="{% url 'ranking' %}" class="startbtn">시작하기</a>
+</div>
+{% endblock %}
